@@ -5,38 +5,19 @@
 
 {% block content %}
 <div class="container">
-    <h2 class="section-title">Top Stories</h2>
+    <h2 class="section-title">Crime</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for i in crime %}
         <div class="col">
             <div class="card">
-                <img src="https://source.unsplash.com/400x200/?breaking,news" class="card-img-top" alt="Top Story 1">
+                <img src="{{i.featured_image.url}}" class="card-img-top" alt="Top Story 1">
                 <div class="card-body">
-                    <h5 class="card-title">Parliament Session Sparks Fierce Debate</h5>
-                    <p class="card-text">The winter session opened with strong arguments on the new education policy and
-                        foreign investment reforms.</p>
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <p class="card-text">{{i.text|truncatewords:6 }}</p>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <img src="https://source.unsplash.com/400x200/?election,india" class="card-img-top" alt="Top Story 2">
-                <div class="card-body">
-                    <h5 class="card-title">State Elections See Record Turnout</h5>
-                    <p class="card-text">Voter enthusiasm was at an all-time high as queues stretched for hours in metro
-                        cities and rural districts alike.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="https://source.unsplash.com/400x200/?disaster,news" class="card-img-top" alt="Top Story 3">
-                <div class="card-body">
-                    <h5 class="card-title">Flood Relief Work Begins in Assam</h5>
-                    <p class="card-text">Rescue teams and the army joined hands to help displaced villagers and restore
-                        connectivity in flood-hit areas.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <h2 class="section-title">Latest Videos</h2>
