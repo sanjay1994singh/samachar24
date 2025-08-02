@@ -1,145 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coming Soon</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-    }
+{% extends 'base.html' %}
 
-    .bg {
-      background: url('https://source.unsplash.com/1920x1080/?tech,future') no-repeat center center/cover;
-      height: 100%;
-      position: relative;
-    }
+{% block css %}
+{% endblock css %}
 
-    .overlay {
-      background: rgba(0, 0, 0, 0.6);
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-      color: white;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    }
-
-    .countdown span {
-      font-size: 2rem;
-      margin: 10px;
-      display: inline-block;
-    }
-
-    .form-control {
-      background-color: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-    }
-
-    .form-control::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .btn-light {
-      background-color: #fff;
-      color: #000;
-      border: none;
-    }
-
-    .social-icons a {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: #ffc107;
-    }
-  </style>
-</head>
-<body>
-  <div class="bg">
-    <div class="overlay"></div>
-    <div class="content">
-      <div class="card">
-        <h1 class="mb-3">🚀 We're Launching Soon</h1>
-        <p class="mb-4">Our new website is on the way. Stay tuned!</p>
-
-        <div class="countdown d-flex justify-content-center mb-4" id="countdown">
-          <span id="days">00</span>:
-          <span id="hours">00</span>:
-          <span id="minutes">00</span>:
-          <span id="seconds">00</span>
+{% block content %}
+<div class="container">
+    <h2 class="section-title">Top Stories</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x200/?breaking,news" class="card-img-top" alt="Top Story 1">
+                <div class="card-body">
+                    <h5 class="card-title">Parliament Session Sparks Fierce Debate</h5>
+                    <p class="card-text">The winter session opened with strong arguments on the new education policy and
+                        foreign investment reforms.</p>
+                </div>
+            </div>
         </div>
-
-        <form class="d-flex mb-4">
-          <input type="email" class="form-control me-2" placeholder="Enter your email" required />
-          <button class="btn btn-light">Notify</button>
-        </form>
-
-        <div class="social-icons mt-3">
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter-x"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-youtube"></i></a>
+        <div class="col">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x200/?election,india" class="card-img-top" alt="Top Story 2">
+                <div class="card-body">
+                    <h5 class="card-title">State Elections See Record Turnout</h5>
+                    <p class="card-text">Voter enthusiasm was at an all-time high as queues stretched for hours in metro
+                        cities and rural districts alike.</p>
+                </div>
+            </div>
         </div>
-
-        <p class="mt-4 small">&copy; 2025 Your Brand. All rights reserved.</p>
-      </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x200/?disaster,news" class="card-img-top" alt="Top Story 3">
+                <div class="card-body">
+                    <h5 class="card-title">Flood Relief Work Begins in Assam</h5>
+                    <p class="card-text">Rescue teams and the army joined hands to help displaced villagers and restore
+                        connectivity in flood-hit areas.</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    // Countdown Timer Script
-    const targetDate = new Date("2025-12-31T23:59:59").getTime();
-    const countdown = document.getElementById("countdown");
+    <h2 class="section-title">Latest Videos</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card video-thumb">
+                <img src="https://img.youtube.com/vi/TiMRwri1xJ8/hqdefault.jpg" class="card-img-top" alt="Video 1">
+                <i class="bi bi-play-circle-fill"></i>
+                <div class="card-body">
+                    <h6 class="card-title">PM addresses the Nation</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card video-thumb">
+                <img src="https://img.youtube.com/vi/3fumBcKC6RE/hqdefault.jpg" class="card-img-top" alt="Video 2">
+                <i class="bi bi-play-circle-fill"></i>
+                <div class="card-body">
+                    <h6 class="card-title">Inside Bollywood: Celeb Updates</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card video-thumb">
+                <img src="https://img.youtube.com/vi/2Vv-BfVoq4g/hqdefault.jpg" class="card-img-top" alt="Video 3">
+                <i class="bi bi-play-circle-fill"></i>
+                <div class="card-body">
+                    <h6 class="card-title">LIVE: Monsoon Tracker</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card video-thumb">
+                <img src="https://img.youtube.com/vi/BxNJz8M0c7Y/hqdefault.jpg" class="card-img-top" alt="Video 4">
+                <i class="bi bi-play-circle-fill"></i>
+                <div class="card-body">
+                    <h6 class="card-title">India vs Pakistan Highlights</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+    <h2 class="section-title">Technology</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x200/?tech,ai" class="card-img-top" alt="Tech News 1">
+                <div class="card-body">
+                    <h5 class="card-title">AI Set to Transform Workspaces</h5>
+                    <p class="card-text">Experts predict major productivity boosts as AI tools are integrated into daily
+                        office software.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x200/?5g,network" class="card-img-top" alt="Tech News 2">
+                <div class="card-body">
+                    <h5 class="card-title">5G Launch Across Tier-2 Cities</h5>
+                    <p class="card-text">Telecom majors push for wider 5G rollout promising faster speeds and better
+                        coverage.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://source.unsplash.com/400x200/?space,satellite" class="card-img-top" alt="Tech News 3">
+                <div class="card-body">
+                    <h5 class="card-title">ISRO to Launch New Satellite</h5>
+                    <p class="card-text">India’s space agency plans next-gen communication satellite launch from
+                        Sriharikota next week.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").innerHTML = days < 10 ? '0' + days : days;
-      document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
-      document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
-      document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-      if (distance < 0) {
-        countdown.innerHTML = "Launched!";
-      }
-    }
-
-    setInterval(updateCountdown, 1000);
-  </script>
-</body>
-</html>
+{% block js %}
+{% endblock js %}

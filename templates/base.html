@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>News TV Channel - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f8f9fa;
+        }
+        .navbar {
+          background-color: #b30000;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: white;
+          letter-spacing: 1px;
+        }
+        .navbar-nav .nav-link {
+          color: white !important;
+          font-weight: 500;
+        }
+        .breaking-news {
+          background-color: #ff0000;
+          color: white;
+          padding: 8px 10px;
+          font-weight: bold;
+          font-size: 1.1rem;
+          text-align: center;
+        }
+        .hero {
+          background: url('https://source.unsplash.com/1200x500/?newsroom,live') no-repeat center center/cover;
+          color: white;
+          padding: 80px 30px;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .hero h1 {
+          font-size: 3.5rem;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+          font-size: 1.3rem;
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        .section-title {
+          border-left: 5px solid #b30000;
+          padding-left: 15px;
+          font-weight: bold;
+          margin-top: 50px;
+          font-size: 1.7rem;
+        }
+        .card img {
+          max-height: 200px;
+          object-fit: cover;
+        }
+        .card {
+          border: none;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+          transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+          transform: scale(1.02);
+        }
+        .video-thumb {
+          position: relative;
+        }
+        .video-thumb i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 3rem;
+          color: white;
+          opacity: 0.9;
+        }
+        .footer {
+          background-color: #111;
+          color: #ccc;
+          padding: 30px 0;
+          margin-top: 50px;
+        }
+        .footer a {
+          color: #ccc;
+          text-decoration: none;
+          margin: 0 10px;
+        }
+        .footer a:hover {
+          text-decoration: underline;
+        }
+    </style>
+    {% block css %}
+    {% endblock css %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Samachar 24</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                {% for i in category %}
+                <li class="nav-item"><a class="nav-link" href="/">{{i.name}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+{% block content %}
+{% endblock content %}
+
+
+<div class="footer text-center">
+    <div class="container">
+        <p>&copy; 2025 NewsTV Channel. All rights reserved.</p>
+        <p>
+            <a href="#">About</a> |
+            <a href="#">Contact</a> |
+            <a href="#">Privacy</a>
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% block js %}
+{% endblock js %}
+</body>
+</html>
