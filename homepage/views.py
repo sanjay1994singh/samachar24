@@ -1,12 +1,47 @@
 from django.shortcuts import render
 
 from news.models import News
-
+import requests
 
 # Create your views here.
+API_KEY = 'AIzaSyAYzY1vH_A9fzixHx9GMZjJ6AoNl49Fi98'
+CHANNEL_ID = 'UC8eaQTAUBKj_OrNmXThrvbQ'
+
+
+def get_youtube_videos(max_results=20):
+    url = 'https://www.googleapis.com/youtube/v3/search'
+    params = {
+        'key': API_KEY,
+        'channelId': CHANNEL_ID,
+        'part': 'snippet',
+        'order': 'date',
+        'maxResults': max_results,
+        'type': 'video'
+    }
+
+    response = requests.get(url, params=params)
+    data = response.json()
+    videos = []
+    for item in data.get('items', []):
+        video_id = item['id']['videoId']
+        title = item['snippet']['title']
+        thumbnail = item['snippet']['thumbnails']['high']['url']
+        published = item['snippet']['publishedAt']
+        videos.append({
+            'video_id': video_id,
+            'title': title,
+            'thumbnail': thumbnail,
+            'publishedAt': published,
+            'url': f'https://www.youtube.com/watch?v={video_id}'
+        })
+    return videos
+
+
 def homepage(request):
+    videos = get_youtube_videos()[:4]
     crime = News.objects.filter(category__name='Crime')
     context = {
         'crime': crime,
+        'videos': videos,
     }
     return render(request, 'index.html', context)

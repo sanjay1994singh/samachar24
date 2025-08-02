@@ -22,42 +22,20 @@
 
     <h2 class="section-title">Latest Videos</h2>
     <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for video in videos %}
         <div class="col">
             <div class="card video-thumb">
-                <img src="https://img.youtube.com/vi/TiMRwri1xJ8/hqdefault.jpg" class="card-img-top" alt="Video 1">
-                <i class="bi bi-play-circle-fill"></i>
-                <div class="card-body">
-                    <h6 class="card-title">PM addresses the Nation</h6>
-                </div>
+                <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}" class="w-full h-auto">
+                    <div class="p-2">
+                        <h6 class="text-sm font-semibold">{{ video.title }}</h6>
+                        <p class="text-xs text-gray-500">{{ video.publishedAt|date:"F j, Y" }}</p>
+                    </div>
+                </a>
             </div>
         </div>
-        <div class="col">
-            <div class="card video-thumb">
-                <img src="https://img.youtube.com/vi/3fumBcKC6RE/hqdefault.jpg" class="card-img-top" alt="Video 2">
-                <i class="bi bi-play-circle-fill"></i>
-                <div class="card-body">
-                    <h6 class="card-title">Inside Bollywood: Celeb Updates</h6>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card video-thumb">
-                <img src="https://img.youtube.com/vi/2Vv-BfVoq4g/hqdefault.jpg" class="card-img-top" alt="Video 3">
-                <i class="bi bi-play-circle-fill"></i>
-                <div class="card-body">
-                    <h6 class="card-title">LIVE: Monsoon Tracker</h6>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card video-thumb">
-                <img src="https://img.youtube.com/vi/BxNJz8M0c7Y/hqdefault.jpg" class="card-img-top" alt="Video 4">
-                <i class="bi bi-play-circle-fill"></i>
-                <div class="card-body">
-                    <h6 class="card-title">India vs Pakistan Highlights</h6>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+
     </div>
 
     <h2 class="section-title">Technology</h2>
