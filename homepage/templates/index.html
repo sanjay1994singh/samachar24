@@ -21,22 +21,23 @@
     </div>
 
     <h2 class="section-title">Latest Videos</h2>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        {% for video in videos %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        {% for video in videos|slice:":4" %}
         <div class="col">
-            <div class="card video-thumb">
-                <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}" class="w-full h-auto">
-                    <div class="p-2">
-                        <h6 class="text-sm font-semibold">{{ video.title }}</h6>
-                        <p class="text-xs text-gray-500">{{ video.publishedAt|date:"F j, Y" }}</p>
+            <div class="card h-100 video-thumb">
+                <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer"
+                   style="text-decoration: none; color: inherit;">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title text-sm font-semibold">{{ video.title }}</h6>
+                        <p class="card-text text-xs text-muted">{{ video.publishedAt|date:"F j, Y" }}</p>
                     </div>
                 </a>
             </div>
         </div>
         {% endfor %}
-
     </div>
+
 
     <h2 class="section-title">Technology</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
