@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
+    path('news_pdf/', include('news_pdf.urls')),
 ]
 
 if settings.DEBUG:

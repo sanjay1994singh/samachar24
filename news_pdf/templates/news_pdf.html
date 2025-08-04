@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/dearflip/jquery.dearflip.min.css">
+{% endblock %}
+
+{% block content %}
+<h2>{{ pdf.title }}</h2>
+<div class="df-flipbook" source="{{ pdf.pdf_file.url }}" id="flipbook"></div>
+
+<h2>{{ pdf.title }}</h2>
+
+<iframe src="{{ pdf.pdf_file.url }}" width="100%" height="800px" style="border: none;"></iframe>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/dearflip/jquery.dearflip.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($.fn.flipBook) {
+            $('#flipbook').flipBook();
+        } else {
+            console.error("❌ flipBook not loaded");
+        }
+    });
+</script>
+
+
+{% endblock %}

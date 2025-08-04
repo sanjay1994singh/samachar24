@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'homepage',
     'category',
     'news',
+    'news_pdf',
 ]
 
 MIDDLEWARE = [
