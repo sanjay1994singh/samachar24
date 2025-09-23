@@ -53,6 +53,10 @@ def homepage(request):
 
 def news_detail(request, slug):
     news = get_object_or_404(News, id=slug)
+    try:
+        absolute_image_url = request.build_absolute_uri(news.featured_image.url)
+    except:
+        absolute_image_url = ''
     related_news = News.objects.filter(category=news.category).exclude(id=news.id).order_by('-created_at')[:10]
     # increase view count
     news.count += 1
@@ -61,5 +65,6 @@ def news_detail(request, slug):
     context = {
         'news': news,
         'latest_news': related_news,
+        'absolute_image_url': absolute_image_url,
     }
     return render(request, "news_detail.html", context)
