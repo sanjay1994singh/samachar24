@@ -68,3 +68,11 @@ def news_detail(request, slug):
         'absolute_image_url': absolute_image_url,
     }
     return render(request, "news_detail.html", context)
+
+
+def news_category(request, slug):
+    related_news = News.objects.filter(category_id=slug).order_by('-created_at')[:20]
+    context = {
+        'latest_news': related_news,
+    }
+    return render(request, "news_category.html", context)

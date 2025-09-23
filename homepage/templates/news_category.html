@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block metatags %}
+<meta property="og:title" content="{{news.title}}">
+<meta property="og:description" content="{{ news.text|truncatewords:30 }}">
+<meta property="og:image" content="{{ absolute_image_url }}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<!-- Optional: Twitter Card meta tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ news.title }}">
+<meta name="twitter:image" content="{{ news.featured_image.url }}">
+{% endblock metatags %}
+
+
+{% block css %}
+<style>
+    .share-links {
+        margin: 10px 0;
+    }
+    .share-links a {
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 24px;
+        color: #000;
+    }
+</style>
+{% endblock css %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <!-- ✅ Latest News Section -->
+    <h3>Latest News</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in latest_news %}
+        <div class="col">
+            <a href="{% url 'news_detail' item.id %}" style="text-decoration:none; color:inherit;">
+                <div class="card h-100">
+                    {% if item.featured_image %}
+                    <img src="{{ item.featured_image.url }}" class="card-img-top" alt="{{ item.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h6 class="card-title">{{ item.title }}</h6>
+                        <p class="card-text">{{ item.text|truncatewords:10 }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
