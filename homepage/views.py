@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from news.models import News
 import requests
+
+from category.models import Category
 
 # Create your views here.
 API_KEY = 'AIzaSyAYzY1vH_A9fzixHx9GMZjJ6AoNl49Fi98'
@@ -39,9 +41,25 @@ def get_youtube_videos(max_results=20):
 
 def homepage(request):
     videos = get_youtube_videos()[:4]
-    crime = News.objects.filter(category__name='Crime')
+    news = News.objects.filter(category__name='Crime')
+    categories = Category.objects.prefetch_related('news_set')
     context = {
-        'crime': crime,
+        'news': news,
         'videos': videos,
+        'categories': categories ,
     }
     return render(request, 'index.html', context)
+
+
+def news_detail(request, slug):
+    news = get_object_or_404(News, id=slug)
+    latest_news = News.objects.exclude(id=news.id).order_by('-created_at')[:5]
+    # increase view count
+    news.count += 1
+    news.save(update_fields=["count"])
+
+    context = {
+        'news': news,
+        'latest_news': latest_news,
+    }
+    return render(request, "news_detail.html", context)

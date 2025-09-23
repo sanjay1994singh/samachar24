@@ -3,6 +3,7 @@ from django.db import models
 from category.models import Category
 
 from account.models import User
+from django.utils.text import slugify
 
 
 # Create your models here.

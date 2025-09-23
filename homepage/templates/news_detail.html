@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ news.title }}</h1>
+    <p><small>Published on {{ news.created_at|date:"F j, Y" }} | Views: {{ news.count }}</small></p>
+
+    {% if news.featured_image %}
+        <img src="{{ news.featured_image.url }}" class="img-fluid mb-3" alt="{{ news.title }}">
+    {% endif %}
+
+    <p>{{ news.text|linebreaks }}</p>
+
+    <p><strong>Category:</strong> {{ news.category.name }}</p>
+
+    <hr>
+
+    <!-- ✅ Latest News Section -->
+    <h3>Latest News</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in latest_news %}
+        <div class="col">
+            <a href="{% url 'news_detail' item.id %}" style="text-decoration:none; color:inherit;">
+                <div class="card h-100">
+                    {% if item.featured_image %}
+                        <img src="{{ item.featured_image.url }}" class="card-img-top" alt="{{ item.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h6 class="card-title">{{ item.title }}</h6>
+                        <p class="card-text">{{ item.text|truncatewords:10 }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
