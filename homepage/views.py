@@ -53,13 +53,13 @@ def homepage(request):
 
 def news_detail(request, slug):
     news = get_object_or_404(News, id=slug)
-    latest_news = News.objects.filter(category_id=slug).exclude(id=news.id).order_by('-id')[:5]
+    related_news = News.objects.filter(category=news.category).exclude(id=news.id).order_by('-created_at')[:5]
     # increase view count
     news.count += 1
     news.save(update_fields=["count"])
 
     context = {
         'news': news,
-        'latest_news': latest_news,
+        'latest_news': related_news,
     }
     return render(request, "news_detail.html", context)
