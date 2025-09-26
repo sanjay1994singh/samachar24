@@ -8,7 +8,7 @@
     {% for category in categories %}
     <h2 class="section-title">{{ category.name }}</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for i in category.news_set.all|dictsortreversed:"created_at" %}
+        {% for i in category.news_set.all|dictsortreversed:"created_at"|slice:":3" %}
         <div class="col">
             <a href="{% url 'news_detail' i.id %}" style="text-decoration: none; color: inherit;">
                 <div class="card">
