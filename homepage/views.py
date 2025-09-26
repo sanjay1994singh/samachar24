@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-
+import random
 from news.models import News
 import requests
 
@@ -57,7 +57,7 @@ def news_detail(request, slug):
         absolute_image_url = ''
     related_news = News.objects.filter(category=news.category).exclude(id=news.id).order_by('-created_at')[:10]
     # increase view count
-    news.count += 1
+    news.count += random.randint(1, 9)
     news.save(update_fields=["count"])
 
     context = {
