@@ -41,10 +41,8 @@ def get_youtube_videos(max_results=20):
 
 def homepage(request):
     videos = get_youtube_videos()[:4]
-    news = News.objects.filter(category__name='Crime')
     categories = Category.objects.prefetch_related('news_set')
     context = {
-        'news': news,
         'videos': videos,
         'categories': categories ,
     }
