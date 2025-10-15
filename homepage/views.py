@@ -40,9 +40,11 @@ def get_youtube_videos(max_results=20):
 
 
 def homepage(request):
+    latest_news = News.objects.all().order_by('-id')[:7]
     videos = get_youtube_videos()[:4]
     categories = Category.objects.prefetch_related('news_set')
     context = {
+        'latest_news': latest_news,
         'videos': videos,
         'categories': categories ,
     }
