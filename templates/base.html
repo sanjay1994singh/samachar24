@@ -20,7 +20,7 @@
           background-color: #f8f9fa;
         }
         .navbar {
-          background-color: #b30000;
+          background-color: #6f1f1f;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .navbar-brand {
@@ -102,35 +102,37 @@
           text-decoration: underline;
         }
     </style>
-    <style>.navbar-nav .nav-link {
-    transition: all 0.3s ease;
-    font-weight: 500;
-    padding: 0.6rem 1rem;
-    position: relative;
-}
 
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #ffc107;
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease;
-}
+    <style>
+        .navbar-nav .nav-link {
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 0.6rem 1rem;
+            position: relative;
+        }
 
-.navbar-nav .nav-link:hover::after {
-    width: 100%;
-}
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #ffc107;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
 
-.navbar-nav .nav-link.active {
-    color: #ffc107 !important;
-}
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
 
-.marquee {
-    font-weight: 500;
-}
+        .navbar-nav .nav-link.active {
+            color: #ffc107 !important;
+        }
+
+        .marquee {
+            font-weight: 500;
+        }
 
     </style>
     {% block css %}
@@ -138,64 +140,64 @@
 </head>
 <body>
 
-<!--<nav class="navbar navbar-expand-lg navbar-dark sticky-top">-->
-<!--    <div class="container">-->
-<!--        <a class="navbar-brand" href="/">-->
-<!--            <img src="/static/admin/img/logo/logo samachar.jpeg" height="40">-->
-<!--            <span>Samachar24</span>-->
-<!--        </a>-->
-<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="navbarNav">-->
-<!--            <ul class="navbar-nav ms-auto">-->
-<!--                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>-->
-<!--                {% for i in category %}-->
-<!--                <li class="nav-item"><a class="nav-link" href="{% url 'news_category' i.id %}">{{i.name}}</a></li>-->
-<!--                {% endfor %}-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
-    <div class="container-fluid flex-column p-0">
-        <!-- Top Row: Brand & Links -->
-        <div class="d-flex w-100 justify-content-between align-items-center py-2 px-3">
-            <!-- Brand -->
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="/static/admin/img/logo/logo samachar.jpeg" height="45" class="me-2 rounded-circle shadow-sm">
-                <span class="fw-bold fs-4 text-warning">Samachar24</span>
-            </a>
-
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-
-        <!-- Links -->
-        <div class="collapse navbar-collapse w-100 px-3" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center w-100 justify-content-end">
-                <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/static/admin/img/logo/logo samachar.jpeg" height="40">
+            <span>Samachar24</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 {% for i in category %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'news_category' i.id %}">{{ i.name }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'news_category' i.id %}">{{i.name}}</a></li>
                 {% endfor %}
             </ul>
-        </div>
-
-        <!-- Breaking News Ticker -->
-        <div class="bg-danger text-white w-100 py-1 px-3 mt-1">
-            <marquee behavior="scroll" direction="left" scrollamount="6">
-                🔥 Latest News: Stay updated with top headlines across India & world | 🌟 Trending Stories: Politics, Sports, Entertainment, Technology
-            </marquee>
         </div>
     </div>
 </nav>
 
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">-->
+<!--    <div class="container-fluid flex-column p-0">-->
+<!--        <div class="row">-->
+<!--            &lt;!&ndash; Top Row: Brand & Links &ndash;&gt;-->
+<!--            <div class="d-flex w-100 justify-content-between align-items-center py-2 px-3">-->
+<!--                &lt;!&ndash; Brand &ndash;&gt;-->
+<!--                <a class="navbar-brand d-flex align-items-center" href="/">-->
+<!--                    <img src="/static/admin/img/logo/logo samachar.jpeg" height="45"-->
+<!--                         class="me-2 rounded-circle shadow-sm">-->
+<!--                    <span class="fw-bold fs-4">Samachar24</span>-->
+<!--                </a>-->
 
+<!--                &lt;!&ndash; Toggler &ndash;&gt;-->
+<!--                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+<!--            </div>-->
 
+<!--            &lt;!&ndash; Links &ndash;&gt;-->
+<!--            <div class="collapse navbar-collapse w-100 px-3" id="navbarNav">-->
+<!--                <ul class="navbar-nav ms-auto align-items-center w-100 justify-content-end">-->
+<!--                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>-->
+<!--                    {% for i in category %}-->
+<!--                    <li class="nav-item"><a class="nav-link" href="{% url 'news_category' i.id %}">{{ i.name }}</a></li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
 
+<!--        &lt;!&ndash; Breaking News Ticker &ndash;&gt;-->
+<!--        <div class="bg-danger text-white w-100 py-1 px-3 mt-1">-->
+<!--            <marquee behavior="scroll" direction="left" scrollamount="6">-->
+<!--                🔥 Latest News: Stay updated with top headlines across India & world | 🌟 Trending Stories: Politics,-->
+<!--                Sports, Entertainment, Technology-->
+<!--            </marquee>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 
 <amp-auto-ads type="adsense"
