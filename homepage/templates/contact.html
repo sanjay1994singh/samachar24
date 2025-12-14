@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block metatags %}
+<meta name="description" content="Contact Samachar24 news channel for news tips, advertisements, and support.">
+{% endblock metatags %}
+
+{% block css %}
+<style>
+  .contact-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://source.unsplash.com/1200x400/?news,contact') center/cover;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .contact-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .contact-info i {
+    font-size: 1.4rem;
+    color: #b30000;
+    margin-right: 10px;
+  }
+
+  .btn-submit {
+    background-color: #b30000;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-submit:hover {
+    background-color: #8f0000;
+  }
+</style>
+{% endblock css %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="contact-hero">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Samachar24 news channel</p>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="container my-5">
+  <div class="row g-4">
+
+    <!-- Contact Information -->
+    <div class="col-lg-4">
+      <div class="contact-card h-100">
+        <h4 class="mb-4">📍 Office Details</h4>
+
+        <p class="contact-info">
+          <i class="bi bi-building"></i>
+          <strong>Head Office:</strong><br>
+          009, Shanti Apartments,<br>
+          Daimper Nagar, Mathura
+        </p>
+
+        <p class="contact-info">
+          <i class="bi bi-telephone-fill"></i>
+          <strong>Mathura:</strong> 0565-3569854
+        </p>
+
+        <p class="contact-info">
+          <i class="bi bi-telephone-fill"></i>
+          <strong>Lucknow Office:</strong> 0522-3163462
+        </p>
+
+        <p class="contact-info">
+          <i class="bi bi-whatsapp"></i>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/919045782250" target="_blank">
+            9045782250
+          </a>
+        </p>
+
+        <p class="contact-info">
+          <i class="bi bi-envelope-fill"></i>
+          <strong>Email:</strong>
+          <a href="mailto:samachar24news@gmail.com">
+            samachar24news@gmail.com
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="col-lg-8">
+      <div class="contact-card">
+        <h4 class="mb-4">✉️ Send Us a Message</h4>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Your Name</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <input type="text" name="subject" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea name="message" rows="5" class="form-control" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-submit px-4">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}

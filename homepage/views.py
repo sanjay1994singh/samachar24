@@ -46,9 +46,13 @@ def homepage(request):
     context = {
         'latest_news': latest_news,
         'videos': videos,
-        'categories': categories ,
+        'categories': categories,
     }
     return render(request, 'index.html', context)
+
+
+def contact(request):
+    return render(request, 'contact.html')
 
 
 def news_detail(request, slug):

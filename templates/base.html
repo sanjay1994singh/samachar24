@@ -152,9 +152,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
                 {% for i in category %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'news_category' i.id %}">{{i.name}}</a></li>
                 {% endfor %}
+                <li class="nav-item"><a class="nav-link" href="/contact/">contact</a></li>
             </ul>
         </div>
     </div>
