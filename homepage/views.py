@@ -6,7 +6,7 @@ import requests
 from category.models import Category
 
 # Create your views here.
-API_KEY = 'AIzaSyAYzY1vH_A9fzixHx9GMZjJ6AoNl49Fi98'
+API_KEY = 'AIzaSyCJQ2WoCt9gMmdKlkaRS_NqEyNeNyxDm9k'
 CHANNEL_ID = 'UC8eaQTAUBKj_OrNmXThrvbQ'
 
 
